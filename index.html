@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+
+    <!-- Bootstrap -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+<h3></h3>
+
+ <form id="upload_form" action="/upload" method="POST" enctype="multipart/form-data">
+      <input type="file" name="file" accept="uploaded_files/*" ><br>
+      <input type="submit" value="Upload">
+   </form>
+
+<br><br>
+
+<form action="./createDB" method="POST" enctype="multipart/form-data">
+    Enter the name for tablea: <input type="text" name="table_name" ><br><br>
+      <input type="submit" name="click" value="Create Table"> &nbsp;
+    <input type="submit" name="click" value="Count">
+
+</form>
+
+<br>
+<form action="./search" method="POST" >
+    Subject <input type="text" name="subject"><br><br>
+    Course Number &nbsp;
+    <select name = "coursenumber_select">
+        <option value="greater"> Greater than</option>
+        <option value="less"> Less than</option>
+    </select> &nbsp;
+    <input type="text" name="coursenumber"> <br><br>
+    Course Career
+    <select name = "cousecareer">
+        <option value="undergraduate"> Under Graduate</option>
+        <option value="graduate"> Graduate</option>
+    </select> <br><br>
+
+    <input type="submit" name="search" value="Search">
+    
+
+</form>
+
+
+<br>
+
+<form action="./searchcd" method="POST">
+    
+    Select Course Number: <select name="coursenum">
+    {% for i in cd %}
+        <option value="{{i.coursenumber}}">{{i.coursenumber}}</option>
+    {% endfor%}}
+    </select><br>
+    <input type="submit" name="searchcd" value="Search Course Details">
+
+
+</form>
+<br>
+</body>
+</html>

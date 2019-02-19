@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+
+</head>
+<body>
+
+<form action="./enroll" method="POST">
+    {% for i in er%}
+    <p>{{i.section}} -- {{i.instructor}} -- {{i.room}}</p><br /><br />{% endfor%}
+    Select Course Number: <select name="eroll">
+    {% for i in er %}
+        <option value="{{i.section}}">{{i.section}}</option>
+    {% endfor%}
+    </select><br>
+    <input type="submit" name="enroll" value="Enroll">
+
+
+</form>
+
+</body>
+</html>
